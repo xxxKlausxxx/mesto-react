@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import logo from './images/logo.svg';
+import close from './images/close.svg';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
 
         {/* Хедер */}
         <header className="header root__section">
-          <img src="./images/logo.svg" alt="mesto logo" className="logo" />
+          <img src={logo} alt="mesto logo" className="logo" />
         </header>
 
         {/* Профиль */}
@@ -31,7 +32,7 @@ function App() {
         {/* Попап добавления карточек */}
         <div className="popup__info popup">
           <div className="popup__content">
-            <img src="./images/close.svg" alt="Закрыть" className="popup__close" />
+            <img src={close} alt="Закрыть" className="popup__close" />
             <h3 className="popup__title">Новое место</h3>
             <form className="popup__form" name="new" noValidate>
               <input type="text" name="name" className="popup__input popup__input_type_name" minLength="1" placeholder="Название" required />
@@ -46,7 +47,7 @@ function App() {
         {/* Попап редактирования профиля */}
         <div className="popup__profile popup">
           <div className="popup__content">
-            <img src="./images/close.svg" alt="Закрыть" className="popup__close" />
+            <img src={close} alt="Закрыть" className="popup__close" />
             <h3 className="popup__title">Редактировать профиль</h3>
             <form id="profile__form" className="popup__form" name="new" noValidate>
               <input id="profile__name" type="text" name="name" className="popup__input popup__input_type_name" placeholder="Имя" />
@@ -62,7 +63,7 @@ function App() {
         <div className="popup popup__image-container">
           <div className="popup__image">
             <img className="popup__bg-image" />
-            <img src="./images/close.svg" alt="Закрыть" className="popup__close popup__close_image" />
+            <img src={close} alt="Закрыть" className="popup__close popup__close_image" />
           </div>
         </div>
 
