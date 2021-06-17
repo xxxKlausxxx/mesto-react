@@ -1,4 +1,6 @@
 import React from 'react';
+
+// Импорт svg
 import logo from './images/logo.svg';
 import close from './images/close.svg';
 
