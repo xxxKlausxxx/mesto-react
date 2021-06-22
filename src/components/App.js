@@ -1,35 +1,58 @@
 import React from 'react';
 
-// Импорт svg
-import logo from './images/logo.svg';
-import close from './images/close.svg';
+import close from '../images/close.svg';
+
+// Components
+import Header from './Header';
+import PopupWithForm from './PopupWithForm';
+import User from './User';
 
 function App() {
+
+  const [isEditProfileOpen, setIsEditProfileOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
+
+  function handleEditProfile() {
+    setIsEditProfileOpen(true)
+  }
+
+  function handleAddPlaceClick() {
+    setIsAddPlacePopupOpen(true)
+  }
+
+  function closeAllPopups() {
+    setIsEditProfileOpen(false);
+    setIsAddPlacePopupOpen(false);
+  }
+
   return (
     <body>
-
       <div className="root">
+        <Header />
+        <User onEditProfile={handleEditProfile} onAddPlace={handleAddPlaceClick}/>
+{/* Edit profile popup */}
+        <PopupWithForm 
+        name="info" 
+        title="Новое место" 
+        input={{name: "Название", link: "Ссылка на картинку"}} 
+        button="+" 
+        isOpen={isAddPlacePopupOpen && 'popup_is-opened'} 
+        close={closeAllPopups}
+        onClose={!isAddPlacePopupOpen && ''}/>
 
-        {/* Хедер */}
-        <header className="header root__section">
-          <img src={logo} alt="mesto logo" className="logo" />
-        </header>
+        <PopupWithForm 
+        name="profile" 
+        title="Редактировать профиль" 
+        input={{name: "Имя", link: "О себе"}} 
+        button="Сохранить" 
+        isOpen={isEditProfileOpen && 'popup_is-opened'}
+        close={closeAllPopups}
+        onClose={!isEditProfileOpen && ''}/>
 
-        {/* Профиль */}
-        <div className="profile root__section">
-          <div className="user-info">
-            <div className="user-info__photo"></div>
-            <div className="user-info__data">
-              <h1 className="user-info__name">Jaques Causteau</h1>
-              <p className="user-info__job">Sailor, Researcher</p>
-              <button className="button edit__button">Edit</button>
-            </div>
-            <button className="button user-info__button">+</button>      
-          </div>
-        </div>
+        <div className="places-list root__section"></div> {/* Card Container */}\
 
-        {/* Контейнер с карточками */}
-        <div className="places-list root__section"></div>
+
+        
 
         {/* Попап добавления карточек */}
         <div className="popup__info popup">
