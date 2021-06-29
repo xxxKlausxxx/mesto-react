@@ -77,9 +77,9 @@ class Api {
 }
 
 // Instance of class
-
+const API_URL = process.env.NODE_ENV === "production" ? "https://nomoreparties.co" : "http://nomoreparties.co";
 const api = new Api(
-    {baseUrl: 'http://praktikum.tk/cohort12', 
+    {baseUrl: `${API_URL}/cohort12`, 
      headers: {
        authorization:'f45a5cb1-aef6-4bd4-96ef-172cd588336a',
        'Content-type': 'application/json'
