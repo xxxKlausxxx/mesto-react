@@ -3,9 +3,9 @@ import close from '../images/close.svg';
 
 function ImagePopup(props) {
     return (
-        <div className={`popup popup__image-container ${props.card}`}>
+        <div className={`popup popup__image-container ${props.cardOpen}`}>
           <div className="popup__image">
-            <img className="popup__bg-image" />
+            <img className="popup__bg-image" src={`${props.cardImg}`}/>
             <img src={close} alt="Закрыть" className="popup__close popup__close_image" onClick={props.close}/>
           </div>
         </div>
